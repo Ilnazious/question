@@ -1,0 +1,175 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_tags %}
+{% load censor_filters %}
+
+{% block title %}
+Все публикации
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="mb-0">Все публикации</h1>
+                {% if perms.news.add_post %}
+                <div class="btn-group" role="group">
+                    <a href="{% url 'news_create' %}" class="btn btn-primary">
+                        <i class="bi bi-plus-circle"></i> Создать новость
+                    </a>
+                    <a href="{% url 'article_create' %}" class="btn btn-success">
+                        <i class="bi bi-plus-circle"></i> Создать статью
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form action="" method="get" class="row g-3">
+                        {% for field in filterset.form %}
+                        <div class="col-md-4">
+                            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                        {% endfor %}
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-search"></i> Найти
+                            </button>
+                            <a href="?" class="btn btn-outline-secondary ms-2">Сбросить</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="text-muted">
+                    <i class="bi bi-calendar"></i> {% current_time '%d %B %Y (%a)' %}
+                </div>
+                <div class="badge bg-primary rounded-pill">
+                    Всего: {{ all_posts|length }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            {% if posts %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Тип</th>
+                            <th scope="col">Дата</th>
+                            <th scope="col">Содержание</th>
+                            <th scope="col">Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for post in posts %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter0|add:page_obj.start_index }}</th>
+                            <td>
+                                <a href="{% url 'post_detail' post.id %}" class="text-decoration-none">
+                                    {{ post.title|censor }}
+                                </a>
+                            </td>
+                            <td>
+                                <span class="badge {% if post.categoryType == 'NW' %}bg-info{% else %}bg-success{% endif %}">
+                                    {{ post.get_categoryType_display }}
+                                </span>
+                            </td>
+                            <td>{{ post.dataCreation|date:"d.m.Y" }}</td>
+                            <td>{{ post.text|truncatechars:50|censor }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="{% url 'post_detail' post.id %}" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                    {% if perms.news.change_post and user == post.author.authorUser or user.is_staff %}
+                                    <a href="{% if post.categoryType == 'NW' %}{% url 'news_edit' post.id %}{% else %}{% url 'article_edit' post.id %}{% endif %}"
+                                       class="btn btn-sm btn-outline-warning">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    {% endif %}
+                                    {% if perms.news.delete_post and user == post.author.authorUser or user.is_staff %}
+                                    <a href="{% if post.categoryType == 'NW' %}{% url 'news_delete' post.id %}{% else %}{% url 'article_delete' post.id %}{% endif %}"
+                                       class="btn btn-sm btn-outline-danger"
+                                       onclick="return confirm('Вы уверены, что хотите удалить эту публикацию?');">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">Нет публикаций!</h4>
+                <p>По вашему запросу ничего не найдено.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if page_obj.paginator.num_pages > 1 %}
+    <div class="row mt-4">
+        <div class="col-12">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{% url_replace page=1 %}" aria-label="First">
+                            <span aria-hidden="true">&laquo;&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                        <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                            <span aria-hidden="true">&raquo;&raquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<style>
+    .btn-group .btn {
+        margin-left: 5px;
+    }
+    .bi {
+        margin-right: 3px;
+    }
+</style>
+{% endblock content %}

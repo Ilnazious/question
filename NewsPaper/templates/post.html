@@ -1,0 +1,105 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_tags %}
+{% load censor_filters %}
+
+{% block title %}
+{{ post.title }} | Детали публикации
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">{{ post.title }}</h3>
+            <span class="badge {% if post.categoryType == 'NW' %}bg-info{% else %}bg-success{% endif %}">
+              {{ post.get_categoryType_display }}
+            </span>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="mb-4">
+            <p class="text-muted">
+              <small>
+                <i class="bi bi-calendar"></i> Опубликовано: {{ post.dataCreation|date:"d.m.Y H:i" }}
+                {% if post.author %}
+                | <i class="bi bi-person"></i> Автор: {{ post.author.authorUser.username }}
+                {% endif %}
+              </small>
+            </p>
+
+            <div class="post-content mb-4">
+              {{ post.text|censor }}
+            </div>
+
+            {% if post.postCategory.all %}
+            <div class="mb-3">
+              <span class="fw-bold">Категории:</span>
+              {% for category in post.postCategory.all %}
+                <span class="badge bg-secondary me-1">{{ category.name }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+
+          <!-- Кнопки управления для автора/админа -->
+          {% if user.is_authenticated and user == post.author.authorUser or user.is_staff %}
+          <div class="border-top pt-3 mb-3">
+            <div class="d-flex justify-content-end gap-2">
+              <a href="{% if post.categoryType == 'NW' %}{% url 'news_edit' post.id %}{% else %}{% url 'article_edit' post.id %}{% endif %}"
+                 class="btn btn-sm btn-outline-primary">
+                <i class="bi bi-pencil"></i> Редактировать
+              </a>
+              <a href="{% if post.categoryType == 'NW' %}{% url 'news_delete' post.id %}{% else %}{% url 'article_delete' post.id %}{% endif %}"
+                 class="btn btn-sm btn-outline-danger">
+                <i class="bi bi-trash"></i> Удалить
+              </a>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if user.is_authenticated and post.postCategory.all %}
+          <div class="border-top pt-3">
+            <h5>Подписка на категории</h5>
+            {% for category in post.postCategory.all %}
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span>{{ category.name }}</span>
+              <form method="post" action="{% url 'subscribe_category' category.id %}">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value="{{ post.id }}">
+                {% if user in category.subscribers.all %}
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">
+                    <i class="bi bi-bell-slash"></i> Отписаться
+                  </button>
+                {% else %}
+                  <button type="submit" class="btn btn-sm btn-primary">
+                    <i class="bi bi-bell"></i> Подписаться
+                  </button>
+                {% endif %}
+              </form>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="card-footer text-muted">
+          <div class="d-flex justify-content-between">
+            <small>Сегодня: {% current_time '%d.%m.%Y' %}</small>
+            <small>Рейтинг: {{ post.rating }}</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3 text-center">
+        <a href="{% url 'news_list' %}" class="btn btn-outline-secondary">
+          <i class="bi bi-arrow-left"></i> Назад к списку новостей
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

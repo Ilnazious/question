@@ -1,0 +1,126 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_tags %}
+{% load censor_filters %}
+
+{% block title %}
+    {% if object %}Редактирование{% else %}Создание{% endif %} {% if view_type == 'news' %}новости{% else %}статьи{% endif %}
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="mb-3">
+                {% if object %}Редактирование{% else %}Создание{% endif %}
+                {% if view_type == 'news' %}новости{% else %}статьи{% endif %}
+            </h1>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="categoryType" value="{% if view_type == 'news' %}NW{% else %}AR{% endif %}">
+
+                        <div class="row g-3">
+                            <!-- Заголовок -->
+                            <div class="col-md-12">
+                                <label for="{{ form.title.id_for_label }}" class="form-label">Заголовок</label>
+                                {{ form.title }}
+                                {% if form.title.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ form.title.errors|join:", " }}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Текст -->
+                            <div class="col-md-12">
+                                <label for="{{ form.text.id_for_label }}" class="form-label">Текст</label>
+                                {{ form.text }}
+                                {% if form.text.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ form.text.errors|join:", " }}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Категории -->
+                            <div class="col-md-12">
+                                <label class="form-label">Категории</label>
+                                <div class="card">
+                                    <div class="card-body" style="max-height: 200px; overflow-y: auto;">
+                                        {% for checkbox in form.postCategory %}
+                                            <div class="form-check">
+                                                <input type="checkbox"
+                                                       name="{{ checkbox.data.name }}"
+                                                       value="{{ checkbox.data.value }}"
+                                                       id="{{ checkbox.id_for_label }}"
+                                                       class="form-check-input"
+                                                       {% if checkbox.data.selected %}checked{% endif %}>
+                                                <label for="{{ checkbox.id_for_label }}" class="form-check-label">
+                                                    {{ checkbox.choice_label }}
+                                                </label>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% if form.postCategory.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ form.postCategory.errors|join:", " }}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Кнопки -->
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-save"></i> Сохранить
+                                </button>
+                                <a href="{% url 'news_list' %}" class="btn btn-outline-secondary ms-2">
+                                    <i class="bi bi-x-circle"></i> Отмена
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-muted text-end">
+                <i class="bi bi-calendar"></i> {% current_time '%d %B %Y (%a)' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Стили для текстовых полей */
+    textarea.form-control {
+        min-height: 200px;
+    }
+
+    /* Стили для чекбоксов категорий */
+    .form-check {
+        margin-bottom: 0.5rem;
+    }
+    .form-check-input {
+        margin-top: 0.2em;
+    }
+    .form-check-label {
+        margin-left: 0.5em;
+    }
+
+    /* Стили для скролла */
+    .card-body::-webkit-scrollbar {
+        width: 8px;
+    }
+    .card-body::-webkit-scrollbar-thumb {
+        background-color: #dee2e6;
+        border-radius: 4px;
+    }
+
+    /* Иконки */
+    .bi {
+        margin-right: 5px;
+    }
+</style>
+{% endblock content %}

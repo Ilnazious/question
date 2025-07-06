@@ -1,0 +1,61 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}Удаление статьи - {{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0">
+                            <i class="bi bi-exclamation-octagon"></i> Подтверждение удаления
+                        </h4>
+                        <span class="badge bg-light text-dark">
+                            {{ post.get_categoryType_display }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    Автор: {{ post.author.authorUser.username }} |
+                                    Дата: {{ post.dataCreation|date:"d.m.Y H:i" }} |
+                                    Категории:
+                                    {% for category in post.postCategory.all %}
+                                        <span class="badge bg-secondary">{{ category.name }}</span>
+                                    {% endfor %}
+                                </small>
+                            </p>
+                            <p class="card-text">{{ post.text|truncatechars:150 }}</p>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning" role="alert">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        Внимание! Это действие нельзя отменить. Статья будет удалена безвозвратно.
+                    </div>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="{{ request.META.HTTP_REFERER|default:'{% url "news_list" %}' }}"
+                               class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Назад
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-trash"></i> Удалить навсегда
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

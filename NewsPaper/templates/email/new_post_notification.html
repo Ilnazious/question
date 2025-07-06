@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Новая {{ post_type }}: {{ post.title }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { color: #2c3e50; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .content { margin: 20px 0; }
+        .footer { font-size: 12px; color: #7f8c8d; }
+        .post-type {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            background-color: {% if post_type == 'новость' %}#3498db{% else %}#2ecc71{% endif %};
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Здравствуйте, {{ user.username }}!</h2>
+            <span class="post-type">{{ post_type|upper }}</span>
+            <h3>{{ post.title }}</h3>
+        </div>
+
+        <div class="content">
+            <p>{{ post.text|truncatechars:200 }}</p>
+            <a href="http://{{ domain }}{{ post.get_absolute_url }}"
+               style="display: inline-block; padding: 8px 15px; background: #3498db; color: white; text-decoration: none;">
+                Читать полностью
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">Выход из системы</h3>
+        </div>
+        <div class="card-body">
+          <p class="text-center">Вы уверены, что хотите выйти?</p>
+          
+          <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            
+            {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            
+            <div class="d-flex justify-content-center gap-3">
+              <button type="submit" class="btn btn-danger">Да, выйти</button>
+              <a href="{% url 'news_list' %}" class="btn btn-secondary">Отмена</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

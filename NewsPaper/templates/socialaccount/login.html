@@ -1,0 +1,43 @@
+{% extends 'flatpages/default.html' %}
+{% load socialaccount %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h3 class="text-center">Вход через Google</h3>
+        </div>
+        <div class="card-body">
+          <div class="text-center mb-4">
+            <i class="bi bi-google fs-1 text-danger mb-3"></i>
+            <p>Вы будете перенаправлены на страницу входа Google</p>
+          </div>
+
+          <div class="d-grid gap-2">
+            <a href="{% provider_login_url 'google' process='connect' %}" class="btn btn-danger btn-lg">
+              <i class="bi bi-google me-2"></i> Продолжить с Google
+            </a>
+          </div>
+
+          <hr class="my-4">
+
+          <div class="text-center">
+            <p>Или войдите другим способом:</p>
+            <a href="{% url 'account_login' %}" class="btn btn-outline-primary me-2">
+              <i class="bi bi-envelope"></i> По email
+            </a>
+            <a href="{% url 'account_signup' %}" class="btn btn-outline-secondary">
+              <i class="bi bi-person-plus"></i> Регистрация
+            </a>
+          </div>
+        </div>
+        <div class="card-footer text-muted text-center">
+          <small>Вы можете отменить вход в любой момент</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
