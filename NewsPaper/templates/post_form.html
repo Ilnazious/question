@@ -1,19 +1,44 @@
 {% extends 'flatpages/default.html' %}
 {% load custom_tags %}
 {% load censor_filters %}
+{% load i18n %}
 
 {% block title %}
-    {% if object %}Редактирование{% else %}Создание{% endif %} {% if view_type == 'news' %}новости{% else %}статьи{% endif %}
+    {% if object %}{% trans "Editing" %}{% else %}{% trans "Creating" %}{% endif %}
+    {% if view_type == 'news' %}{% trans "news" %}{% else %}{% trans "article" %}{% endif %}
 {% endblock title %}
 
 {% block content %}
 <div class="container mt-4">
     <div class="row mb-4">
         <div class="col-12">
-            <h1 class="mb-3">
-                {% if object %}Редактирование{% else %}Создание{% endif %}
-                {% if view_type == 'news' %}новости{% else %}статьи{% endif %}
-            </h1>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="mb-0">
+                    {% if object %}{% trans "Editing" %}{% else %}{% trans "Creating" %}{% endif %}
+                    {% if view_type == 'news' %}{% trans "news" %}{% else %}{% trans "article" %}{% endif %}
+                </h1>
+                <!-- Кнопка перевода -->
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+
+                    {% for language in languages %}
+                        {% if language.code != LANGUAGE_CODE %}
+                            <input type="hidden" name="language" value="{{ language.code }}">
+                            <button type="submit" class="btn btn-outline-primary" title="{% trans 'Switch to' %} {{ language.name_local }}">
+                                {% if language.code == 'ru' %}
+                                    <i class="bi bi-translate"></i> RU
+                                {% else %}
+                                    <i class="bi bi-translate"></i> EN
+                                {% endif %}
+                            </button>
+                        {% endif %}
+                    {% endfor %}
+                </form>
+            </div>
 
             <div class="card mb-4">
                 <div class="card-body">
@@ -24,7 +49,7 @@
                         <div class="row g-3">
                             <!-- Заголовок -->
                             <div class="col-md-12">
-                                <label for="{{ form.title.id_for_label }}" class="form-label">Заголовок</label>
+                                <label for="{{ form.title.id_for_label }}" class="form-label">{% trans "Title" %}</label>
                                 {{ form.title }}
                                 {% if form.title.errors %}
                                     <div class="invalid-feedback d-block">
@@ -35,7 +60,7 @@
 
                             <!-- Текст -->
                             <div class="col-md-12">
-                                <label for="{{ form.text.id_for_label }}" class="form-label">Текст</label>
+                                <label for="{{ form.text.id_for_label }}" class="form-label">{% trans "Text" %}</label>
                                 {{ form.text }}
                                 {% if form.text.errors %}
                                     <div class="invalid-feedback d-block">
@@ -46,7 +71,7 @@
 
                             <!-- Категории -->
                             <div class="col-md-12">
-                                <label class="form-label">Категории</label>
+                                <label class="form-label">{% trans "Categories" %}</label>
                                 <div class="card">
                                     <div class="card-body" style="max-height: 200px; overflow-y: auto;">
                                         {% for checkbox in form.postCategory %}
@@ -74,10 +99,10 @@
                             <!-- Кнопки -->
                             <div class="col-12 mt-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="bi bi-save"></i> Сохранить
+                                    <i class="bi bi-save"></i> {% trans "Save" %}
                                 </button>
                                 <a href="{% url 'news_list' %}" class="btn btn-outline-secondary ms-2">
-                                    <i class="bi bi-x-circle"></i> Отмена
+                                    <i class="bi bi-x-circle"></i> {% trans "Cancel" %}
                                 </a>
                             </div>
                         </div>

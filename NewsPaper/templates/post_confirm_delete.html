@@ -1,6 +1,7 @@
 {% extends 'flatpages/default.html' %}
+{% load i18n %}
 
-{% block title %}Удаление статьи - {{ post.title }}{% endblock %}
+{% block title %}{% trans "Delete article" %} - {{ post.title }}{% endblock %}
 
 {% block content %}
 <div class="container mt-4">
@@ -10,11 +11,34 @@
                 <div class="card-header bg-danger text-white">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4 class="mb-0">
-                            <i class="bi bi-exclamation-octagon"></i> Подтверждение удаления
+                            <i class="bi bi-exclamation-octagon"></i> {% trans "Delete confirmation" %}
                         </h4>
-                        <span class="badge bg-light text-dark">
-                            {{ post.get_categoryType_display }}
-                        </span>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="badge bg-light text-dark">
+                                {{ post.get_categoryType_display }}
+                            </span>
+                            <!-- Кнопка перевода -->
+                            <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {% get_available_languages as LANGUAGES %}
+                                {% get_language_info_list for LANGUAGES as languages %}
+
+                                {% for language in languages %}
+                                    {% if language.code != LANGUAGE_CODE %}
+                                        <input type="hidden" name="language" value="{{ language.code }}">
+                                        <button type="submit" class="btn btn-sm btn-light" title="{% trans 'Switch to' %} {{ language.name_local }}">
+                                            {% if language.code == 'ru' %}
+                                                <i class="bi bi-translate"></i> RU
+                                            {% else %}
+                                                <i class="bi bi-translate"></i> EN
+                                            {% endif %}
+                                        </button>
+                                    {% endif %}
+                                {% endfor %}
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -24,9 +48,9 @@
                         <div class="card-body">
                             <p class="card-text">
                                 <small class="text-muted">
-                                    Автор: {{ post.author.authorUser.username }} |
-                                    Дата: {{ post.dataCreation|date:"d.m.Y H:i" }} |
-                                    Категории:
+                                    {% trans "Author" %}: {{ post.author.authorUser.username }} |
+                                    {% trans "Date" %}: {{ post.dataCreation|date:"d.m.Y H:i" }} |
+                                    {% trans "Categories" %}:
                                     {% for category in post.postCategory.all %}
                                         <span class="badge bg-secondary">{{ category.name }}</span>
                                     {% endfor %}
@@ -38,7 +62,7 @@
 
                     <div class="alert alert-warning" role="alert">
                         <i class="bi bi-exclamation-triangle"></i>
-                        Внимание! Это действие нельзя отменить. Статья будет удалена безвозвратно.
+                        {% trans "Warning! This action cannot be undone. The article will be permanently deleted." %}
                     </div>
 
                     <form method="post">
@@ -46,10 +70,10 @@
                         <div class="d-flex justify-content-end gap-2">
                             <a href="{{ request.META.HTTP_REFERER|default:'{% url "news_list" %}' }}"
                                class="btn btn-secondary">
-                                <i class="bi bi-arrow-left"></i> Назад
+                                <i class="bi bi-arrow-left"></i> {% trans "Back" %}
                             </a>
                             <button type="submit" class="btn btn-danger">
-                                <i class="bi bi-trash"></i> Удалить навсегда
+                                <i class="bi bi-trash"></i> {% trans "Delete permanently" %}
                             </button>
                         </div>
                     </form>

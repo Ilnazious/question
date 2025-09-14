@@ -1,0 +1,309 @@
+Watching for file changes with StatReloader
+Error sending email to ilnas228@inbox.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Error sending email to ilnas337@bk.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Error sending email to ilnas228@inbox.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Error sending email to ilnas337@bk.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Error sending email to ilnas228@inbox.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Error sending email to ilnas337@bk.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Error sending email to ilnas228@inbox.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Error sending email to ilnas337@bk.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Error sending email to ilnas228@inbox.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Error sending email to ilnas337@bk.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Error sending email to ilnas228@inbox.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Error sending email to ilnas337@bk.ru: Reverse for 'category_subscribe' not found. 'category_subscribe' is not a valid view function or pattern name.
+Watching for file changes with StatReloader
+Sent weekly digest to ilnas228@inbox.ru
+Sent weekly digest to ilnas337@bk.ru
+Sent weekly digest to ilnas228@inbox.ru
+Sent weekly digest to ilnas337@bk.ru
+Sent weekly digest to ilnas228@inbox.ru
+Sent weekly digest to ilnas337@bk.ru
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Watching for file changes with StatReloader
+Not Found: /
+Not Found: /favicon.ico
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\NewsPaper\celery.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /
+Not Found: /favicon.ico
+Internal Server Error: /admin/news/post/
+Traceback (most recent call last):
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 2024, in changelist_view
+    cl = self.get_changelist_instance(request)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 867, in get_changelist_instance
+    return ChangeList(
+           ^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\views\main.py", line 145, in __init__
+    self.queryset = self.get_queryset(request)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\views\main.py", line 583, in get_queryset
+    qs, search_may_have_duplicates = self.model_admin.get_search_results(
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1242, in get_search_results
+    queryset = queryset.filter(models.Q.create(term_queries))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1500, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1500, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1523, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1330, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1802, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'category' into field. Choices are: author, author_id, categoryType, comment, dataCreation, id, postCategory, postcategory, rating, text, title
+Internal Server Error: /admin/news/post/
+Traceback (most recent call last):
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 2024, in changelist_view
+    cl = self.get_changelist_instance(request)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 867, in get_changelist_instance
+    return ChangeList(
+           ^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\views\main.py", line 145, in __init__
+    self.queryset = self.get_queryset(request)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\views\main.py", line 583, in get_queryset
+    qs, search_may_have_duplicates = self.model_admin.get_search_results(
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1242, in get_search_results
+    queryset = queryset.filter(models.Q.create(term_queries))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1500, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1500, in build_filter
+    return self._add_q(
+           ^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1523, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1330, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1802, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'category' into field. Choices are: author, author_id, categoryType, comment, dataCreation, id, postCategory, postcategory, rating, text, title
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /admin/news/post/151/change/
+Traceback (most recent call last):
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1314, in save_model
+    obj.save()
+  File "C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\models.py", line 85, in save
+    cache.delete(f'product-{self.pk}')
+    ^^^^^
+NameError: name 'cache' is not defined
+Watching for file changes with StatReloader
+Not Found: /
+Not Found: /favicon.ico
+Not Found: /account
+Internal Server Error: /news/create/
+Traceback (most recent call last):
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\views\generic\edit.py", line 182, in post
+    return super().post(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\views\generic\edit.py", line 151, in post
+    return self.form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\views.py", line 103, in form_valid
+    return super().form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\views\generic\edit.py", line 133, in form_valid
+    self.object = form.save()
+                  ^^^^^^^^^^^
+  File "C:\Users\Ильназ\PycharmProjects\News_project\.venv\Lib\site-packages\django\forms\models.py", line 554, in save
+    self.instance.save()
+  File "C:\Users\Ильназ\PycharmProjects\News_project\NewsPaper\news\models.py", line 85, in save
+    cache.delete(f'product-{self.pk}')
+    ^^^^^
+NameError: name 'cache' is not defined

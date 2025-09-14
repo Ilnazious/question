@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-13 21:50+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\fpages\admin.py:10
+msgid "Advanced options"
+msgstr "Продвинутые опции"
+
+#: .\news\filters.py:9 .\templates\post.html:55
+#: .\templates\post_confirm_delete.html:51
+msgid "Author"
+msgstr "Автор"
+
+#: .\news\filters.py:10
+msgid "Publication date(since)"
+msgstr "Дата публикации(не ранее)"
+
+#: .\news\models.py:35
+msgid "category name"
+msgstr "Название категории"
+
+#: .\news\models.py:46
+msgid "News"
+msgstr "Новость"
+
+#: .\news\models.py:47
+msgid "Article"
+msgstr "Статья"
+
+#: .\news\models.py:49 .\templates\posts.html:92
+msgid "Type"
+msgstr "Тип"
+
+#: .\news\models.py:49
+msgid "post category"
+msgstr "Категория поста"
+
+#: .\news\models.py:52
+msgid "post title"
+msgstr "Заголовок"
+
+#: .\news\models.py:53
+msgid "post text"
+msgstr "Текст"
+
+#: .\templates\post.html:7
+msgid "Publication details"
+msgstr "Детали публикации"
+
+#: .\templates\post.html:33 .\templates\post_confirm_delete.html:31
+#: .\templates\post_form.html:31 .\templates\posts.html:28
+msgid "Switch to"
+msgstr "Переключится"
+
+#: .\templates\post.html:53
+msgid "Published"
+msgstr "Опубликованно"
+
+#: .\templates\post.html:72 .\templates\post_confirm_delete.html:53
+#: .\templates\post_form.html:74
+msgid "Categories"
+msgstr "Категории"
+
+#: .\templates\post.html:86
+msgid "Edit"
+msgstr "Редактирование"
+
+#: .\templates\post.html:90
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\post.html:98
+msgid "Category subscriptions"
+msgstr "Подписки на категории"
+
+#: .\templates\post.html:107
+msgid "Unsubscribe"
+msgstr "Отписаться"
+
+#: .\templates\post.html:111
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: .\templates\post.html:122
+msgid "Today"
+msgstr "Сегодня"
+
+#: .\templates\post.html:123
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: .\templates\post.html:130
+msgid "Back to news list"
+msgstr "Вернуться к списку новостей"
+
+# locale/ru/LC_MESSAGES/django.po
+#: .\templates\post_confirm_delete.html:4
+msgid "Delete article"
+msgstr "Удаление статьи"
+
+#: .\templates\post_confirm_delete.html:14
+msgid "Delete confirmation"
+msgstr "Подтверждение удаления"
+
+#: .\templates\post_confirm_delete.html:52 .\templates\posts.html:93
+msgid "Date"
+msgstr "Дата"
+
+#: .\templates\post_confirm_delete.html:65
+msgid "Warning! This action cannot be undone. The article will be permanently deleted."
+msgstr "Внимание! Это действие нельзя отменить. Статья будет удалена безвозвратно."
+
+#: .\templates\post_confirm_delete.html:73
+msgid "Back"
+msgstr "Назад"
+
+#: .\templates\post_confirm_delete.html:76
+msgid "Delete permanently"
+msgstr "Удалить навсегда"
+
+#: .\templates\post_form.html:7 .\templates\post_form.html:17
+#, fuzzy
+#| msgid "Edit"
+msgid "Editing"
+msgstr "Редактирование"
+
+#: .\templates\post_form.html:7 .\templates\post_form.html:17
+#, fuzzy
+#| msgid "Rating"
+msgid "Creating"
+msgstr "Рейтинг"
+
+#: .\templates\post_form.html:8 .\templates\post_form.html:18
+msgid "news"
+msgstr "Новость"
+
+#: .\templates\post_form.html:8 .\templates\post_form.html:18
+#, fuzzy
+#| msgid "Article"
+msgid "article"
+msgstr "Статья"
+
+#: .\templates\post_form.html:52 .\templates\posts.html:91
+msgid "Title"
+msgstr "Заголовок"
+
+#: .\templates\post_form.html:63
+msgid "Text"
+msgstr "Текст"
+
+#: .\templates\post_form.html:102
+msgid "Save"
+msgstr "Создать"
+
+#: .\templates\post_form.html:105
+msgid "Cancel"
+msgstr "Отмена"
+
+#: .\templates\posts.html:7 .\templates\posts.html:15
+msgid "All publications"
+msgstr "Все публикации"
+
+#: .\templates\posts.html:41
+msgid "Create news"
+msgstr "Создать новость"
+
+#: .\templates\posts.html:44
+msgid "Create article"
+msgstr "Создать статью"
+
+#: .\templates\posts.html:61
+msgid "Search"
+msgstr "Поиск"
+
+#: .\templates\posts.html:63
+msgid "Reset filters"
+msgstr "Сбросить фильтры"
+
+#: .\templates\posts.html:76
+msgid "Total"
+msgstr "Всего"
+
+#: .\templates\posts.html:94
+msgid "Content"
+msgstr "Содержание"
+
+#: .\templates\posts.html:95
+msgid "Actions"
+msgstr "Действия"
+
+#: .\templates\posts.html:128
+msgid "Are you sure you want to delete this publication?"
+msgstr "Вы уверены, что хотите удалить пост"
+
+#: .\templates\posts.html:141
+msgid "No publications!"
+msgstr "Публикаций нет!"
+
+#: .\templates\posts.html:142
+msgid "Nothing found for your request."
+msgstr "По вашему запросу ничего не найдено"

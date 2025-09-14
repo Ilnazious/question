@@ -1,9 +1,10 @@
 {% extends 'flatpages/default.html' %}
 {% load custom_tags %}
 {% load censor_filters %}
+{% load i18n %}
 
 {% block title %}
-Все публикации
+{% trans "All publications" %}
 {% endblock title %}
 
 {% block content %}
@@ -11,17 +12,39 @@
     <div class="row mb-4">
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h1 class="mb-0">Все публикации</h1>
-                {% if perms.news.add_post %}
+                <h1 class="mb-0">{% trans "All publications" %}</h1>
                 <div class="btn-group" role="group">
+                    <!-- Кнопка перевода -->
+                    <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+
+                        {% for language in languages %}
+                            {% if language.code != LANGUAGE_CODE %}
+                                <input type="hidden" name="language" value="{{ language.code }}">
+                                <button type="submit" class="btn btn-outline-primary" title="{% trans 'Switch to' %} {{ language.name_local }}">
+                                    {% if language.code == 'ru' %}
+                                        <i class="bi bi-translate"></i> Русский
+                                    {% else %}
+                                        <i class="bi bi-translate"></i> English
+                                    {% endif %}
+                                </button>
+                            {% endif %}
+                        {% endfor %}
+                    </form>
+
+                    {% if perms.news.add_post %}
                     <a href="{% url 'news_create' %}" class="btn btn-primary">
-                        <i class="bi bi-plus-circle"></i> Создать новость
+                        <i class="bi bi-plus-circle"></i> {% trans "Create news" %}
                     </a>
                     <a href="{% url 'article_create' %}" class="btn btn-success">
-                        <i class="bi bi-plus-circle"></i> Создать статью
+                        <i class="bi bi-plus-circle"></i> {% trans "Create article" %}
                     </a>
+                    {% endif %}
                 </div>
-                {% endif %}
             </div>
 
             <div class="card mb-4">
@@ -35,9 +58,9 @@
                         {% endfor %}
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">
-                                <i class="bi bi-search"></i> Найти
+                                <i class="bi bi-search"></i> {% trans "Search" %}
                             </button>
-                            <a href="?" class="btn btn-outline-secondary ms-2">Сбросить</a>
+                            <a href="?" class="btn btn-outline-secondary ms-2">{% trans "Reset filters" %}</a>
                         </div>
                     </form>
                 </div>
@@ -47,9 +70,12 @@
                 <div class="text-muted">
                     <i class="bi bi-calendar"></i> {% current_time '%d %B %Y (%a)' %}
                 </div>
+                {% load cache %}
+                {% cache 300 post_count_counter %}
                 <div class="badge bg-primary rounded-pill">
-                    Всего: {{ all_posts|length }}
+                    {% trans "Total" %}: {{ all_posts|length }}
                 </div>
+                {% endcache %}
             </div>
         </div>
     </div>
@@ -62,11 +88,11 @@
                     <thead class="table-light">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Название</th>
-                            <th scope="col">Тип</th>
-                            <th scope="col">Дата</th>
-                            <th scope="col">Содержание</th>
-                            <th scope="col">Действия</th>
+                            <th scope="col">{% trans "Title" %}</th>
+                            <th scope="col">{% trans "Type" %}</th>
+                            <th scope="col">{% trans "Date" %}</th>
+                            <th scope="col">{% trans "Content" %}</th>
+                            <th scope="col">{% trans "Actions" %}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -99,7 +125,7 @@
                                     {% if perms.news.delete_post and user == post.author.authorUser or user.is_staff %}
                                     <a href="{% if post.categoryType == 'NW' %}{% url 'news_delete' post.id %}{% else %}{% url 'article_delete' post.id %}{% endif %}"
                                        class="btn btn-sm btn-outline-danger"
-                                       onclick="return confirm('Вы уверены, что хотите удалить эту публикацию?');">
+                                       onclick="return confirm('{% trans "Are you sure you want to delete this publication?" %}');">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                     {% endif %}
@@ -112,8 +138,8 @@
             </div>
             {% else %}
             <div class="alert alert-info" role="alert">
-                <h4 class="alert-heading">Нет публикаций!</h4>
-                <p>По вашему запросу ничего не найдено.</p>
+                <h4 class="alert-heading">{% trans "No publications!" %}</h4>
+                <p>{% trans "Nothing found for your request." %}</p>
             </div>
             {% endif %}
         </div>
@@ -170,6 +196,9 @@
     }
     .bi {
         margin-right: 3px;
+    }
+    .language-switcher {
+        margin-right: 10px;
     }
 </style>
 {% endblock content %}
